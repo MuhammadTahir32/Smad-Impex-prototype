@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-olive-50: #F2F5E4;
+  --color-olive-200: #DBE6B0;
+  --color-olive-400: #C3D47E;
+  --color-lime-500: #C8F169;
+  --color-ink-950: #14150F;
+  --color-cream-50: #FAF9F2;
+  
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-olive-400);
+    color: var(--color-ink-950);
+  }
+}

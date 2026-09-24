@@ -7,7 +7,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 | Task | Status | Notes |
 |---|---|---|
 | Vite + React + TanStack Router + Tailwind v4 setup | [x] | |
-| Theme tokens defined in `styles.css` | Not started | |
+| Theme tokens defined in `styles.css` | [x] | |
 | Real content pulled into `data/content.ts` | Not started | |
 | Route + layout shell built | Not started | |
 
