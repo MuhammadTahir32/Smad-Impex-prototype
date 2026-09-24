@@ -14,6 +14,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 ## Phase 2 — Section build-out
 | Task | Status | Notes |
 |---|---|---|
+|Navbar| [x] | |
 | Hero | Not started | |
 | About / categories | Not started | |
 | Marquee band | Not started | |
