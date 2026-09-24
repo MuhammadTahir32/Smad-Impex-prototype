@@ -16,7 +16,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 |---|---|---|
 |Navbar| [x] | |
 | Hero | [x] | |
-| About / categories | Not started | |
+| About / categories | [x] | |
 | Marquee band | Not started | |
 | Top-selling products rail | Not started | |
 | Testimonials + why-choose-us + stats | Not started | |
