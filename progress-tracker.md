@@ -9,7 +9,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 | Vite + React + TanStack Router + Tailwind v4 setup | [x] | |
 | Theme tokens defined in `styles.css` | [x] | |
 | Real content pulled into `data/content.ts` | [x] | |
-| Route + layout shell built | Not started | |
+| Route + layout shell built | [x] | |
 
 ## Phase 2 — Section build-out
 | Task | Status | Notes |
