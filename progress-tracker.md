@@ -15,7 +15,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 | Task | Status | Notes |
 |---|---|---|
 |Navbar| [x] | |
-| Hero | Not started | |
+| Hero | [x] | |
 | About / categories | Not started | |
 | Marquee band | Not started | |
 | Top-selling products rail | Not started | |
