@@ -36,7 +36,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 | Task | Status | Notes |
 |---|---|---|
 | OEM/ODM section built | [x] | |
-| Category cards linked or finalized as static | Not started | |
+| Category cards linked or finalized as static | [x] | Linked to #products section |
 | Contact form destination decided | Not started | |
 
 ## Phase 5 — QA

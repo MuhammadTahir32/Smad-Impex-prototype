@@ -79,9 +79,10 @@ export default function Categories() {
         className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6"
       >
         {categories.map((cat, i) => (
-          <div
+          <a
             key={cat.id}
-            className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ease-out ${
+            href="#products"
+            className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ease-out block ${
               cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             } ${activeCard === cat.id ? 'md:col-span-1' : ''}`}
             style={{
@@ -147,7 +148,7 @@ export default function Categories() {
                 </svg>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
