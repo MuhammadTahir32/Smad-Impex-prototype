@@ -21,7 +21,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 | Marquee band | [x] | |
 | Top-selling products rail | [x] | |
 | Testimonials + why-choose-us + stats | [x] | |
-| Certifications row | Not started | |
+| Certifications row | [x] | |
 | Newsletter / closing CTA | Not started | |
 
 ## Phase 3 — Visual pass
