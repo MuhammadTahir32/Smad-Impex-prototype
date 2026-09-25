@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { content } from '../../data/content';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function Newsletter() {
   const [sectionRef, sectionVisible] = useScrollReveal<HTMLElement>({ threshold: 0.15 });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   return (
     <section
@@ -49,27 +51,45 @@ export default function Newsletter() {
             {content.newsletter.subheadline}
           </p>
 
-          {/* CTA Form */}
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col sm:flex-row items-stretch gap-3 max-w-md mx-auto"
-          >
-            <input
-              type="email"
-              placeholder="Your business email"
-              className="flex-1 rounded-full bg-cream-50/[0.06] border border-cream-50/10 px-6 py-3.5 text-sm text-cream-50 placeholder:text-cream-50/30 font-body focus:outline-none focus:border-lime-500/50 focus:bg-cream-50/[0.08] transition-all duration-300"
-            />
-            <button
-              type="submit"
-              id="newsletter-cta"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-lime-500 px-7 py-3.5 text-sm font-semibold text-ink-950 transition-all duration-300 hover:bg-cream-50 hover:scale-[1.03] hover:shadow-2xl hover:shadow-lime-500/20 active:scale-95 whitespace-nowrap"
+          {/* CTA Form / Success State */}
+          {isSubmitted ? (
+            <div className="flex flex-col items-center justify-center p-6 rounded-2xl border border-lime-500/30 bg-lime-500/5 max-w-md mx-auto transform transition-all duration-500 animate-in fade-in slide-in-from-bottom-4">
+              <div className="w-12 h-12 rounded-full bg-lime-500 flex items-center justify-center text-ink-950 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              </div>
+              <h3 className="text-cream-50 font-display font-bold text-lg mb-1">Request Received</h3>
+              <p className="text-cream-50/60 font-body text-sm text-center">
+                Thank you! Our sourcing team will contact you within 24 hours.
+              </p>
+            </div>
+          ) : (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setIsSubmitted(true);
+              }}
+              className="flex flex-col sm:flex-row items-stretch gap-3 max-w-md mx-auto"
             >
-              {content.newsletter.cta}
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638l-3.96-3.96a.75.75 0 1 1 1.06-1.06l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.96-3.96H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
-              </svg>
-            </button>
-          </form>
+              <input
+                type="email"
+                required
+                placeholder="Your business email"
+                className="flex-1 rounded-full bg-cream-50/[0.06] border border-cream-50/10 px-6 py-3.5 text-sm text-cream-50 placeholder:text-cream-50/30 font-body focus:outline-none focus:border-lime-500/50 focus:bg-cream-50/[0.08] transition-all duration-300"
+              />
+              <button
+                type="submit"
+                id="newsletter-cta"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-lime-500 px-7 py-3.5 text-sm font-semibold text-ink-950 transition-all duration-300 hover:bg-cream-50 hover:scale-[1.03] hover:shadow-2xl hover:shadow-lime-500/20 active:scale-95 whitespace-nowrap"
+              >
+                {content.newsletter.cta}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                  <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638l-3.96-3.96a.75.75 0 1 1 1.06-1.06l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.96-3.96H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
+                </svg>
+              </button>
+            </form>
+          )}
 
           {/* Trust line */}
           <p className="text-cream-50/25 text-xs font-body mt-6">
