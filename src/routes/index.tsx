@@ -6,6 +6,7 @@ import Marquee from '../components/sections/Marquee'
 import Products from '../components/sections/Products'
 import Testimonials from '../components/sections/Testimonials'
 import Certifications from '../components/sections/Certifications'
+import Newsletter from '../components/sections/Newsletter'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -21,6 +22,7 @@ function Index() {
       <Products />
       <Testimonials />
       <Certifications />
+      <Newsletter />
     </>
   )
 }
