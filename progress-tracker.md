@@ -22,7 +22,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 | Top-selling products rail | [x] | |
 | Testimonials + why-choose-us + stats | [x] | |
 | Certifications row | [x] | |
-| Newsletter / closing CTA | Not started | |
+| Newsletter / closing CTA | [x] | |
 
 ## Phase 3 — Visual pass
 | Task | Status | Notes |
