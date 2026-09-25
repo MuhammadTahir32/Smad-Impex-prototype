@@ -19,6 +19,13 @@
     background-color: var(--color-olive-400);
     color: var(--color-ink-950);
   }
+
+  /* ── Global accessibility: Keyboard-focus states ── */
+  *:focus-visible {
+    outline: 3px solid var(--color-lime-500);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
 }
 
 /* ── Marquee infinite scroll animation ── */

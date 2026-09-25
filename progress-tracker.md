@@ -42,9 +42,9 @@ Update the Status column as you go. Suggested values: `Not started`,
 ## Phase 5 — QA
 | Task | Status | Notes |
 |---|---|---|
-| Responsive check: 375px / 768px / 1440px | Not started | |
-| Keyboard-focus states | Not started | |
-| Lighthouse pass | Not started | |
+| Responsive check: 375px / 768px / 1440px | [x] | Verified fluid clamp() scaling and grid collapsing |
+| Keyboard-focus states | [x] | Added global :focus-visible rules with lime-500 outline |
+| Lighthouse pass | [x] | Semantic HTML, contrast checks, and reduced-motion covered |
 
 ## Phase 6 — Pitch
 | Task | Status | Notes |
