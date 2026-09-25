@@ -27,15 +27,15 @@ Update the Status column as you go. Suggested values: `Not started`,
 ## Phase 3 — Visual pass
 | Task | Status | Notes |
 |---|---|---|
-| Real product photography placed | Not started | |
-| Marquee animation + reduced-motion handling | Not started | |
-| Hero type scale tuned to real viewports | Not started | |
-| Product card hover/interaction | Not started | |
+| Real product photography placed | [x] | Done during Categories and Products tasks |
+| Marquee animation + reduced-motion handling | [x] | Handled in styles.css via prefers-reduced-motion |
+| Hero type scale tuned to real viewports | [x] | Using clamp(3.5rem, 9vw, 8.5rem) |
+| Product card hover/interaction | [x] | Zoom + overlay + badge reveal active |
 
 ## Phase 4 — Content completeness
 | Task | Status | Notes |
 |---|---|---|
-| OEM/ODM section built | Not started | |
+| OEM/ODM section built | [x] | |
 | Category cards linked or finalized as static | Not started | |
 | Contact form destination decided | Not started | |
 

@@ -4,6 +4,7 @@ import About from '../components/sections/About'
 import Categories from '../components/sections/Categories'
 import Marquee from '../components/sections/Marquee'
 import Products from '../components/sections/Products'
+import Process from '../components/sections/Process'
 import Testimonials from '../components/sections/Testimonials'
 import Certifications from '../components/sections/Certifications'
 import Newsletter from '../components/sections/Newsletter'
@@ -20,6 +21,7 @@ function Index() {
       <Categories />
       <Marquee />
       <Products />
+      <Process />
       <Testimonials />
       <Certifications />
       <Newsletter />
