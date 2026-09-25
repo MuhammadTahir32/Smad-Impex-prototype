@@ -19,7 +19,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 | About | [x] | |
 | Categories | [x] | |
 | Marquee band | [x] | |
-| Top-selling products rail | Not started | |
+| Top-selling products rail | [x] | |
 | Testimonials + why-choose-us + stats | Not started | |
 | Certifications row | Not started | |
 | Newsletter / closing CTA | Not started | |
