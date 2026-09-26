@@ -51,6 +51,7 @@ Update the Status column as you go. Suggested values: `Not started`,
 |---|---|---|
 | Task A1 — Section rhythm audit | [x] | Standardized padding, fixed Testimonials block, fixed About whitespace |
 | Task A2 — Product grid spacing | [x] | Increased gutters (gap-6/8), forced 2-col on tablet (768px) |
+| Task A3 — Hero visual cleanup | [x] | Restored original image, decreased height to 85vh to tighten viewport |
 
 ## Phase 6 — Pitch
 | Task | Status | Notes |
