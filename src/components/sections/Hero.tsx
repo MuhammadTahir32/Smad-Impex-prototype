@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-[96vh] min-h-[600px] overflow-hidden"
+      className="relative w-full h-[96svh] min-h-[600px] overflow-hidden"
     >
       {/* ── Full-bleed background image ── */}
       <img

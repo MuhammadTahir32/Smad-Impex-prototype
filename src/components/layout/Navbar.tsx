@@ -1,9 +1,43 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { content } from '../../data/content';
+import { products } from '../../data/products';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const blurTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return products
+      .filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          p.moq.toLowerCase().includes(q)
+      )
+      .slice(0, 6);
+  }, [query]);
+
+  const openProduct = () => {
+    setQuery('');
+    setSearchOpen(false);
+    const target = document.getElementById('products');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    else window.location.hash = 'products';
+  };
+
+  const handleBlur = () => {
+    blurTimer.current = setTimeout(() => setSearchOpen(false), 150);
+  };
+
+  const handleFocus = () => {
+    if (blurTimer.current) clearTimeout(blurTimer.current);
+    setSearchOpen(true);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -50,26 +84,96 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* ── Desktop CTA button ── */}
-        <a
-          href="#newsletter"
-          id="navbar-cta"
-          className="hidden md:inline-flex items-center gap-2 rounded-full bg-lime-500 px-5 py-2.5 text-sm font-semibold text-ink-950 transition-all duration-300 hover:bg-ink-950 hover:text-lime-500 hover:shadow-lg hover:shadow-lime-500/20 active:scale-95"
-        >
-          {content.hero.cta}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+        {/* ── Desktop product search ── */}
+        <div id="navbar-search" className="hidden md:block relative">
+          <div
+            className={`flex items-center gap-2 rounded-full border py-2 pl-4 pr-3 transition-all duration-300 ${
+              searchOpen
+                ? 'w-72 border-ink-950/25 bg-cream-50 shadow-lg shadow-ink-950/10'
+                : 'w-56 border-ink-950/10 bg-ink-950/[0.06]'
+            }`}
           >
-            <path
-              fillRule="evenodd"
-              d="M3 10a.75.75 0 0 1 .75-.75h10.638l-3.96-3.96a.75.75 0 1 1 1.06-1.06l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.96-3.96H3.75A.75.75 0 0 1 3 10Z"
-              clipRule="evenodd"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+              className="w-4 h-4 shrink-0 text-ink-950/45"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path strokeLinecap="round" d="m20 20-3.5-3.5" />
+            </svg>
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setSearchOpen(true);
+              }}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') setSearchOpen(false);
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  if (results.length) openProduct();
+                  else document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              placeholder="Search products…"
+              aria-label="Search products"
+              className="w-44 xl:w-56 bg-transparent text-sm text-ink-950 placeholder:text-ink-950/40 focus:outline-none"
             />
-          </svg>
-        </a>
+          </div>
+
+          {/* Results dropdown */}
+          {searchOpen && query.trim() !== '' && (
+            <div className="absolute right-0 top-full mt-2 w-80 overflow-hidden rounded-2xl border border-ink-950/10 bg-cream-50 shadow-2xl shadow-ink-950/15">
+              {results.length > 0 ? (
+                <ul className="max-h-80 overflow-y-auto py-1">
+                  {results.map((product) => (
+                    <li key={product.id}>
+                      <button
+                        type="button"
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={openProduct}
+                        className="group flex w-full items-center justify-between gap-3 px-4 py-3 text-left transition-colors duration-200 hover:bg-olive-50"
+                      >
+                        <span className="min-w-0">
+                          <span className="block truncate text-sm font-medium text-ink-950">
+                            {product.name}
+                          </span>
+                          <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-ink-950/40">
+                            {product.category} · {product.moq}
+                          </span>
+                        </span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          aria-hidden="true"
+                          className="w-4 h-4 shrink-0 text-ink-950/30 transition-all duration-200 group-hover:text-lime-500 group-hover:translate-x-0.5"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M3 10a.75.75 0 0 1 .75-.75h10.638l-3.96-3.96a.75.75 0 1 1 1.06-1.06l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.96-3.96H3.75A.75.75 0 0 1 3 10Z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="px-4 py-4 text-sm text-ink-950/50">
+                  No products match “{query.trim()}”.
+                </p>
+              )}
+            </div>
+          )}
+        </div>
 
         {/* ── Mobile hamburger button ── */}
         <button
