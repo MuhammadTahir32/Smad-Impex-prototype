@@ -53,6 +53,11 @@ Update the Status column as you go. Suggested values: `Not started`,
 | Task A2 — Product grid spacing | [x] | Increased gutters (gap-6/8), forced 2-col on tablet (768px) |
 | Task A3 — Hero visual cleanup | [x] | Restored original image, decreased height to 85vh to tighten viewport |
 
+## Phase B — Content integrity fixes (Added via Prompt)
+| Task | Status | Notes |
+|---|---|---|
+| Task B1 — Remove fabricated testimonials | [x] | Deleted fake quotes, redesigned into a single large pull-quote |
+
 ## Phase 6 — Pitch
 | Task | Status | Notes |
 |---|---|---|

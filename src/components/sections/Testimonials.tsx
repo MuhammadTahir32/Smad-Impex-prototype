@@ -41,32 +41,14 @@ const features = [
   },
 ];
 
-/** Additional testimonials beyond the one in content.ts */
-const testimonials = [
-  {
-    quote: content.testimonials.quote,
-    author: content.testimonials.author,
-    role: content.testimonials.role,
-  },
-  {
-    quote: 'We switched three manufacturers before finding Smad Impex. Their leather craftsmanship is unmatched — our customers can feel the difference instantly.',
-    author: 'Sarah Mitchell',
-    role: 'Founder, MITCH Leather Co.',
-  },
-  {
-    quote: 'From sampling to bulk, everything was seamless. The 50k monthly capacity meant we could scale without changing partners. Highly recommended.',
-    author: 'James Park',
-    role: 'COO, Vanguard Sports',
-  },
-];
-
 export default function Testimonials() {
   const [headingRef, headingVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
   const [featuresRef, featuresVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.1 });
-  const [quotesRef, quotesVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.1 });
+  const [quotesRef, quotesVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
   const [statsRef, statsVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.2 });
 
   const stats = content.testimonials.stats;
+  const t = content.testimonials;
 
   return (
     <section
@@ -142,81 +124,28 @@ export default function Testimonials() {
       <div className="py-24 md:py-32 bg-cream-50/[0.02] border-t border-cream-50/[0.08]">
         <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
 
-          {/* Testimonials heading */}
-          <div className="flex items-center gap-3 mb-14">
-            <span className="h-px w-8 bg-cream-50/20" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-cream-50/30">
-              Client Testimonials
-            </span>
-          </div>
-
-          {/* Testimonial cards grid */}
+          {/* Testimonial Feature Quote */}
           <div
             ref={quotesRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-20"
+            className={`max-w-4xl mx-auto text-center mb-28 transition-all duration-1000 ease-out ${
+              quotesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            }`}
           >
-            {testimonials.map((t, i) => (
-              <div
-                key={t.author}
-                className={`relative rounded-2xl p-8 transition-all duration-700 ease-out ${
-                  i === 0
-                    ? 'bg-olive-400 text-ink-950'
-                    : 'bg-cream-50/[0.04] border border-cream-50/[0.06] text-cream-50'
-                } ${quotesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${i * 160}ms` }}
-              >
-                {/* Quote mark */}
-                <span
-                  className={`block font-display text-5xl font-black leading-none mb-4 ${
-                    i === 0 ? 'text-ink-950/15' : 'text-cream-50/10'
-                  }`}
-                >
-                  &ldquo;
-                </span>
-
-                {/* Quote text */}
-                <p
-                  className={`text-sm leading-relaxed font-body mb-8 ${
-                    i === 0 ? 'text-ink-950/70' : 'text-cream-50/55'
-                  }`}
-                >
-                  {t.quote}
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center gap-3 mt-auto">
-                  {/* Author avatar placeholder (initials) */}
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold ${
-                      i === 0
-                        ? 'bg-ink-950 text-olive-400'
-                        : 'bg-cream-50/10 text-cream-50/60'
-                    }`}
-                  >
-                    {t.author
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')}
-                  </div>
-                  <div>
-                    <span
-                      className={`block text-sm font-semibold ${
-                        i === 0 ? 'text-ink-950' : 'text-cream-50'
-                      }`}
-                    >
-                      {t.author}
-                    </span>
-                    <span
-                      className={`block text-xs ${
-                        i === 0 ? 'text-ink-950/50' : 'text-cream-50/35'
-                      }`}
-                    >
-                      {t.role}
-                    </span>
-                  </div>
-                </div>
+            <span className="block font-display text-lime-500 text-6xl md:text-8xl font-black leading-none mb-6 opacity-30">
+              &ldquo;
+            </span>
+            <p className="font-display font-medium text-cream-50 text-2xl md:text-4xl leading-snug tracking-tight mb-10">
+              {t.quote}
+            </p>
+            <div className="inline-flex items-center gap-4 text-left">
+              <div className="w-12 h-12 rounded-full bg-olive-400 text-ink-950 flex items-center justify-center font-display font-black text-lg">
+                {t.author.charAt(0)}
               </div>
-            ))}
+              <div>
+                <span className="block text-cream-50 font-bold text-lg">{t.author}</span>
+                <span className="block text-lime-500/80 text-sm font-medium uppercase tracking-wider">{t.role}</span>
+              </div>
+            </div>
           </div>
 
           {/* ═══════════════════════════════════════════
