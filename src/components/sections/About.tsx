@@ -12,12 +12,12 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative min-h-screen bg-olive-400 overflow-hidden"
+      className="relative bg-olive-400 overflow-hidden"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
 
         {/* ── LEFT COLUMN: Text content ── */}
-        <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20 py-20 lg:py-0">
+        <div className="flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24 md:py-32">
 
           {/* Eyebrow */}
           <div

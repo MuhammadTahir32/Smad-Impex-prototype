@@ -18,7 +18,7 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      className="relative bg-olive-400 py-20 md:py-28 overflow-hidden"
+      className="relative bg-olive-400 py-24 md:py-32 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
 

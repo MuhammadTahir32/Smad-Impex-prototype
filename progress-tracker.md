@@ -46,6 +46,12 @@ Update the Status column as you go. Suggested values: `Not started`,
 | Keyboard-focus states | [x] | Added global :focus-visible rules with lime-500 outline |
 | Lighthouse pass | [x] | Semantic HTML, contrast checks, and reduced-motion covered |
 
+## Phase A — Structural fixes (Added via Prompt)
+| Task | Status | Notes |
+|---|---|---|
+| Task A1 — Section rhythm audit | [x] | Standardized padding, fixed Testimonials block, fixed About whitespace |
+| Task A2 — Product grid spacing | [x] | Increased gutters (gap-6/8), forced 2-col on tablet (768px) |
+
 ## Phase 6 — Pitch
 | Task | Status | Notes |
 |---|---|---|

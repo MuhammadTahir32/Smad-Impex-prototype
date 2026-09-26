@@ -136,15 +136,10 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Divider line */}
-      <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
-        <div className="h-px bg-cream-50/[0.06]" />
-      </div>
-
       {/* ═══════════════════════════════════════════
-          PART 2: Testimonials
+          PART 2: Testimonials & Stats (Shade shift to separate sections)
           ═══════════════════════════════════════════ */}
-      <div className="py-24 md:py-32">
+      <div className="py-24 md:py-32 bg-cream-50/[0.02] border-t border-cream-50/[0.08]">
         <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
 
           {/* Testimonials heading */}

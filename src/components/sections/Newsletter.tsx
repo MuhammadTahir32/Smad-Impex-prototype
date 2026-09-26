@@ -15,7 +15,7 @@ export default function Newsletter() {
       {/* ═══════════════════════════════════════════
           CTA BLOCK
           ═══════════════════════════════════════════ */}
-      <div className="py-28 md:py-40">
+      <div className="py-24 md:py-32">
         {/* Background watermark */}
         <span
           aria-hidden="true"

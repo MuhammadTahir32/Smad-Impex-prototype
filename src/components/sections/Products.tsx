@@ -72,7 +72,7 @@ export default function Products() {
       {/* ── TOP ROW — 4 products ── */}
       <div
         ref={row1Ref}
-        className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-4 md:mb-5"
+        className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8"
       >
         {topRow.map((product, i) => (
           <ProductCard
@@ -87,7 +87,7 @@ export default function Products() {
       {/* ── BOTTOM ROW — 4 products ── */}
       <div
         ref={row2Ref}
-        className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5"
+        className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
       >
         {bottomRow.map((product, i) => (
           <ProductCard
