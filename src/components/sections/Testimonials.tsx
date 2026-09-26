@@ -5,7 +5,7 @@ import { useScrollReveal, useStaggerReveal } from '../../hooks/useScrollReveal';
 const features = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 md:w-7 md:h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" />
       </svg>
     ),
@@ -14,7 +14,7 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 md:w-7 md:h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
       </svg>
     ),
@@ -23,7 +23,7 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 md:w-7 md:h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
       </svg>
     ),
@@ -32,7 +32,7 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 md:w-7 md:h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
       </svg>
     ),
@@ -44,8 +44,14 @@ const features = [
 export default function Testimonials() {
   const [headingRef, headingVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
   const [featuresRef, featuresVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.1 });
-  const [tHeadingRef, tHeadingVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
-  const [cardsRef, cardsVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.15 });
+  const [tHeadingRef, tHeadingVisible] = useScrollReveal<HTMLDivElement>({
+    threshold: 0.05,
+    rootMargin: '0px 0px -25% 0px',
+  });
+  const [cardsRef, cardsVisible] = useStaggerReveal<HTMLDivElement>({
+    threshold: 0.05,
+    rootMargin: '0px 0px -30% 0px',
+  });
 
   const t = content.testimonials;
 
@@ -75,11 +81,12 @@ export default function Testimonials() {
 
   /** Multi-directional reveal: left → bottom → right */
   const cardEnter = [
-    'opacity-0 -translate-x-16',
-    'opacity-0 translate-y-16',
-    'opacity-0 translate-x-16',
+    'opacity-0 -translate-x-24',
+    'opacity-0 translate-y-24',
+    'opacity-0 translate-x-24',
   ];
   const cardRest = 'opacity-100 translate-x-0 translate-y-0';
+  const cardDelay = ['delay-0', 'delay-[220ms]', 'delay-[440ms]'];
 
   return (
     <section
@@ -90,7 +97,7 @@ export default function Testimonials() {
           PART 1: Why Choose Us
           ═══════════════════════════════════════════ */}
       <div className="py-20 md:py-28 lg:py-0 lg:h-[96svh] lg:min-h-[640px] lg:flex lg:items-center">
-        <div className="w-full max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+        <div className="w-full max-w-[1648px] mx-auto px-8 md:px-16 lg:px-24">
 
           {/* Section heading */}
           <div
@@ -123,24 +130,24 @@ export default function Testimonials() {
           {/* Feature cards — 4-column grid */}
           <div
             ref={featuresRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {features.map((feat, i) => (
               <div
                 key={feat.title}
-                className={`group relative rounded-2xl border border-cream-50/[0.06] bg-cream-50/[0.03] p-7 transition-all duration-700 ease-out hover:border-lime-500/30 hover:bg-cream-50/[0.06] ${
+                className={`group relative flex flex-col rounded-2xl border border-cream-50/[0.06] bg-cream-50/[0.03] p-7 md:p-8 transition-all duration-700 ease-out hover:border-lime-500/30 hover:bg-cream-50/[0.06] hover:-translate-y-2 ${
                   featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${i * 140}ms` }}
               >
                 {/* Icon */}
-                <div className="w-11 h-11 rounded-xl bg-lime-500/10 flex items-center justify-center text-lime-500 mb-5 group-hover:bg-lime-500/20 transition-colors duration-300">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-lime-500/10 flex items-center justify-center text-lime-500 mb-6 group-hover:bg-lime-500/20 transition-colors duration-300">
                   {feat.icon}
                 </div>
-                <h3 className="font-display font-bold text-cream-50 text-base mb-2">
+                <h3 className="font-display font-bold text-cream-50 text-lg md:text-xl mb-3">
                   {feat.title}
                 </h3>
-                <p className="text-cream-50/40 text-sm font-body leading-relaxed">
+                <p className="text-cream-50/60 text-sm md:text-base font-body leading-relaxed flex-1">
                   {feat.description}
                 </p>
               </div>
@@ -158,8 +165,8 @@ export default function Testimonials() {
           {/* Section heading */}
           <div
             ref={tHeadingRef}
-            className={`mb-10 md:mb-14 transition-all duration-700 ease-out ${
-              tHeadingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            className={`mb-10 md:mb-14 transition-all duration-900 ease-out ${
+              tHeadingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
           >
             <div className="flex items-center gap-3 mb-5">
@@ -184,10 +191,9 @@ export default function Testimonials() {
             {testimonials.map((item, i) => (
               <figure
                 key={item.author}
-                className={`group relative flex flex-col rounded-2xl border border-cream-50/[0.06] bg-cream-50/[0.03] p-7 transition-all duration-700 ease-out hover:border-lime-500/30 hover:bg-cream-50/[0.06] hover:-translate-y-2 ${
+                className={`group relative flex flex-col rounded-2xl border border-cream-50/[0.06] bg-cream-50/[0.03] p-7 transition-all duration-1000 ease-out group-hover:delay-0 hover:border-lime-500/30 hover:bg-cream-50/[0.06] hover:-translate-y-2 ${cardDelay[i]} ${
                   cardsVisible ? cardRest : cardEnter[i]
                 }`}
-                style={{ transitionDelay: `${i * 160}ms` }}
               >
                 {/* Quote mark */}
                 <span className="block font-display text-lime-500 text-5xl font-black leading-none mb-4 opacity-30">
