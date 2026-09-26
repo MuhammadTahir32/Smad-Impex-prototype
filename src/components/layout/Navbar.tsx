@@ -65,9 +65,19 @@ export default function Navbar() {
         <a
           href="#"
           id="navbar-logo"
-          className="font-display text-xl font-black tracking-tight text-ink-950 transition-transform duration-300 hover:scale-[1.03]"
+          className="group flex items-center gap-2.5 transition-transform duration-300 hover:scale-[1.03]"
         >
-          {content.global.companyName}
+          {/* Custom Smad Impex Logo Mark */}
+          <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-ink-950 text-lime-500 overflow-hidden shadow-sm shadow-ink-950/10">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
+              <path d="M22.5 10L16 6L9.5 10V14.5L16 10.5L22.5 14.5V10Z" fill="currentColor" />
+              <path d="M22.5 22L16 26L9.5 22V17.5L16 21.5L22.5 17.5V22Z" fill="currentColor" />
+              <path d="M16 10.5L9.5 14.5L16 18.5L22.5 14.5L16 10.5Z" fill="currentColor" className="opacity-50" />
+            </svg>
+          </div>
+          <span className="font-display text-xl font-black tracking-tight text-ink-950">
+            {content.global.companyName}
+          </span>
         </a>
 
         {/* ── Desktop nav links ── */}
