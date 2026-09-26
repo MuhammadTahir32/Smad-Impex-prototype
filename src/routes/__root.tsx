@@ -8,7 +8,6 @@ export const Route = createRootRoute({
       <main className="flex-grow pt-20">
         <Outlet />
       </main>
-      <footer className="p-4 border-t border-olive-200">Footer Placeholder</footer>
     </div>
   ),
 })
