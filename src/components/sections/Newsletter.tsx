@@ -367,7 +367,7 @@ export default function Newsletter() {
                     <li key={link.label}>
                       <a
                         href={link.href}
-                        className="group inline-flex items-center gap-2 text-sm text-cream-50/50 transition-colors duration-300 font-body hover:text-cream-50"
+                        className="group inline-flex items-center gap-2 text-sm text-cream-50/50 transition-all duration-300 font-body hover:text-lime-500 hover:translate-x-1"
                       >
                         <span className="h-px w-0 bg-lime-500 transition-all duration-300 group-hover:w-3" />
                         {link.label}
@@ -387,7 +387,7 @@ export default function Newsletter() {
                     <li key={cat}>
                       <a
                         href="#products"
-                        className="group inline-flex items-center gap-2 text-sm text-cream-50/50 transition-colors duration-300 font-body hover:text-cream-50"
+                        className="group inline-flex items-center gap-2 text-sm text-cream-50/50 transition-all duration-300 font-body hover:text-lime-500 hover:translate-x-1"
                       >
                         <span className="h-px w-0 bg-lime-500 transition-all duration-300 group-hover:w-3" />
                         {cat}
@@ -406,7 +406,7 @@ export default function Newsletter() {
                   <li>
                     <a
                       href={`mailto:${content.global.contactEmail}`}
-                      className="transition-colors duration-300 hover:text-lime-500 break-all"
+                      className="inline-block transition-all duration-300 hover:text-lime-500 hover:translate-x-1 break-all"
                     >
                       {content.global.contactEmail}
                     </a>
@@ -414,12 +414,12 @@ export default function Newsletter() {
                   <li>
                     <a
                       href={`tel:${content.global.contactPhone.replace(/\s/g, '')}`}
-                      className="transition-colors duration-300 hover:text-lime-500"
+                      className="inline-block transition-all duration-300 hover:text-lime-500 hover:translate-x-1"
                     >
                       {content.global.contactPhone}
                     </a>
                   </li>
-                  <li className="leading-relaxed text-cream-50/40">
+                  <li className="leading-relaxed text-cream-50/40 transition-colors duration-300 hover:text-cream-50">
                     {content.global.address}
                   </li>
                 </ul>

@@ -53,15 +53,16 @@ export default function About() {
           {/* Category tags — staggered reveal */}
           <div ref={tagsRef} className="flex flex-wrap gap-2.5 mb-10">
             {content.about.categories.map((cat, i) => (
-              <span
+              <a
                 key={cat}
-                className={`rounded-full bg-ink-950 text-cream-50 px-5 py-2.5 text-sm md:text-base font-semibold tracking-wide transition-all duration-600 ease-out ${
+                href="#products"
+                className={`group inline-flex items-center rounded-full bg-ink-950 text-cream-50 px-5 py-2.5 text-sm md:text-base font-semibold tracking-wide cursor-pointer transition-all duration-600 ease-out hover:bg-lime-500 hover:text-ink-950 hover:scale-[1.04] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-ink-950/20 active:scale-95 ${
                   tagsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-                style={{ transitionDelay: `${i * 120}ms` }}
+                style={{ transitionDelay: tagsVisible ? '0ms' : `${i * 120}ms` }}
               >
                 {cat}
-              </span>
+              </a>
             ))}
           </div>
 
