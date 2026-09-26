@@ -49,7 +49,6 @@ export default function Products() {
         }`}
       >
         <div className="flex items-center gap-3 mb-6">
-          <span className="h-px w-8 bg-ink-950/40" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-950/50">
             Our Top Sellers
           </span>
@@ -61,7 +60,7 @@ export default function Products() {
           >
             Top-Selling
             <br />
-            <span className="text-ink-950/30">Products.</span>
+            <span className="text-ink-950">Products.</span>
           </h2>
           <p className="text-ink-950/50 text-sm font-body max-w-xs leading-relaxed">
             Custom manufactured with your brand, your specs, your standards. Every piece below ships from our Sialkot facility.

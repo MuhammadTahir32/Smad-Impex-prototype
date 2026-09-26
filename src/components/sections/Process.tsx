@@ -42,7 +42,6 @@ export default function Process() {
           }`}
         >
           <div className="flex items-center gap-3 mb-6">
-            <span className="h-px w-8 bg-ink-950/40" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-950/50">
               OEM & ODM Process
             </span>

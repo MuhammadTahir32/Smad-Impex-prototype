@@ -27,7 +27,6 @@ export default function About() {
             }`}
           >
             <div className="flex items-center gap-3 mb-5">
-              <span className="h-px w-10 bg-ink-950/40" />
               <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.22em] text-ink-950/50">
                 About Us
               </span>

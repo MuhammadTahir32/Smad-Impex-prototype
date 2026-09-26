@@ -107,7 +107,6 @@ export default function Testimonials() {
             }`}
           >
             <div className="flex items-center gap-3 mb-6">
-              <span className="h-px w-8 bg-lime-500" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-lime-500">
                 Why Choose Us
               </span>
@@ -170,7 +169,6 @@ export default function Testimonials() {
             }`}
           >
             <div className="flex items-center gap-3 mb-5">
-              <span className="h-px w-8 bg-lime-500" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-lime-500">
                 Testimonials
               </span>

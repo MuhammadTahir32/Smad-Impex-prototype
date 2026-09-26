@@ -58,7 +58,6 @@ export default function Categories() {
         }`}
       >
         <div className="flex items-center gap-3 mb-6">
-          <span className="h-px w-8 bg-lime-500" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-lime-500">
             What We Manufacture
           </span>

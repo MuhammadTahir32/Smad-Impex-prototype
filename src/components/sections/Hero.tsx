@@ -39,7 +39,6 @@ export default function Hero() {
           }`}
           style={{ transitionDelay: '0ms' }}
         >
-          <span className="h-px w-8 bg-lime-500" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-lime-500">
             Sialkot, Pakistan — Est. 2012
           </span>
