@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="GMP certified">
+  <g fill="#4B5147">
+    <g>
+      <path d="M112 2 h16 l5 30 h-26 z"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(30 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(60 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(90 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(120 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(150 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(180 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(210 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(240 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(270 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(300 120 120)"/>
+      <path d="M112 2 h16 l5 30 h-26 z" transform="rotate(330 120 120)"/>
+    </g>
+    <circle cx="120" cy="120" r="96"/>
+  </g>
+  <circle cx="120" cy="120" r="80" fill="#EDEFE9"/>
+  <circle cx="120" cy="120" r="72" fill="#4B5147"/>
+  <text x="120" y="118" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" letter-spacing="2" fill="#EDEFE9">GMP</text>
+  <text x="120" y="152" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="4" fill="#EDEFE9">CERTIFIED</text>
+</svg>
