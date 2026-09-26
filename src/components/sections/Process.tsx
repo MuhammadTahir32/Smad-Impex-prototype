@@ -30,14 +30,14 @@ export default function Process() {
   return (
     <section
       id="manufacturing"
-      className="relative bg-olive-200 py-24 md:py-32 overflow-hidden"
+      className="relative bg-olive-200 py-20 md:py-28 lg:py-0 lg:h-[96svh] lg:min-h-[640px] lg:flex lg:items-center overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+      <div className="w-full max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
         
         {/* Section header */}
         <div
           ref={headingRef}
-          className={`mb-16 md:mb-24 transition-all duration-700 ease-out ${
+          className={`mb-12 md:mb-16 lg:mb-14 transition-all duration-700 ease-out ${
             headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -50,11 +50,11 @@ export default function Process() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-end">
             <h2
               className="font-display font-black leading-[0.90] tracking-[-0.04em] text-ink-950"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
+              style={{ fontSize: 'clamp(2.25rem, 4.2vw, 4rem)' }}
             >
               How We
               <br />
-              <span className="text-ink-950/40">Manufacture.</span>
+              <span className="text-ink-950">Manufacture.</span>
             </h2>
             <p className="text-ink-950/60 text-sm md:text-base font-body max-w-md leading-relaxed lg:text-right lg:ml-auto">
               A transparent, end-to-end manufacturing pipeline designed to scale your apparel brand with zero friction.

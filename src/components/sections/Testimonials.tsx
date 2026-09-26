@@ -44,11 +44,42 @@ const features = [
 export default function Testimonials() {
   const [headingRef, headingVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
   const [featuresRef, featuresVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.1 });
-  const [quotesRef, quotesVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
-  const [statsRef, statsVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.2 });
+  const [tHeadingRef, tHeadingVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
+  const [cardsRef, cardsVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.15 });
 
-  const stats = content.testimonials.stats;
   const t = content.testimonials;
+
+  /** 3-card testimonials — first one is the existing site testimonial */
+  const testimonials = [
+    {
+      quote: t.quote,
+      author: t.author,
+      role: t.role,
+      avatar: 'bg-olive-400',
+    },
+    {
+      quote:
+        'Sampling turnaround was faster than anyone we have worked with in Europe. The tech-pack feedback loop is genuinely two-way, and the final bulk matched the approved sample exactly.',
+      author: 'Marta Kowalski',
+      role: 'Founder, Nordik Activewear',
+      avatar: 'bg-lime-500',
+    },
+    {
+      quote:
+        'We scaled from 2k to 18k units a month without a single missed shipment. Their QA reports are detailed enough that our retail partners trust every carton.',
+      author: 'James Okafor',
+      role: 'Head of Supply Chain, Volt Sportswear',
+      avatar: 'bg-cream-50',
+    },
+  ];
+
+  /** Multi-directional reveal: left → bottom → right */
+  const cardEnter = [
+    'opacity-0 -translate-x-16',
+    'opacity-0 translate-y-16',
+    'opacity-0 translate-x-16',
+  ];
+  const cardRest = 'opacity-100 translate-x-0 translate-y-0';
 
   return (
     <section
@@ -58,13 +89,13 @@ export default function Testimonials() {
       {/* ═══════════════════════════════════════════
           PART 1: Why Choose Us
           ═══════════════════════════════════════════ */}
-      <div className="py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+      <div className="py-20 md:py-28 lg:py-0 lg:h-[96svh] lg:min-h-[640px] lg:flex lg:items-center">
+        <div className="w-full max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
 
           {/* Section heading */}
           <div
             ref={headingRef}
-            className={`mb-16 md:mb-20 transition-all duration-700 ease-out ${
+            className={`mb-12 md:mb-16 lg:mb-14 transition-all duration-700 ease-out ${
               headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -77,7 +108,7 @@ export default function Testimonials() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-end">
               <h2
                 className="font-display font-black leading-[0.90] tracking-[-0.04em] text-cream-50"
-                style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
+                style={{ fontSize: 'clamp(2.25rem, 4.2vw, 4rem)' }}
               >
                 Built Different.
                 <br />
@@ -119,60 +150,72 @@ export default function Testimonials() {
       </div>
 
       {/* ═══════════════════════════════════════════
-          PART 2: Testimonials & Stats (Shade shift to separate sections)
+          PART 2: Testimonials — 3-card multi-directional reveal
           ═══════════════════════════════════════════ */}
-      <div className="py-24 md:py-32 bg-cream-50/[0.02] border-t border-cream-50/[0.08]">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+      <div className="py-20 md:py-24 lg:py-0 lg:h-[96svh] lg:min-h-[640px] lg:flex lg:items-center bg-cream-50/[0.02] border-t border-cream-50/[0.08]">
+        <div className="w-full max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
 
-          {/* Testimonial Feature Quote */}
+          {/* Section heading */}
           <div
-            ref={quotesRef}
-            className={`max-w-4xl mx-auto text-center mb-28 transition-all duration-1000 ease-out ${
-              quotesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            ref={tHeadingRef}
+            className={`mb-10 md:mb-14 transition-all duration-700 ease-out ${
+              tHeadingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <span className="block font-display text-lime-500 text-6xl md:text-8xl font-black leading-none mb-6 opacity-30">
-              &ldquo;
-            </span>
-            <p className="font-display font-medium text-cream-50 text-2xl md:text-4xl leading-snug tracking-tight mb-10">
-              {t.quote}
-            </p>
-            <div className="inline-flex items-center gap-4 text-left">
-              <div className="w-12 h-12 rounded-full bg-olive-400 text-ink-950 flex items-center justify-center font-display font-black text-lg">
-                {t.author.charAt(0)}
-              </div>
-              <div>
-                <span className="block text-cream-50 font-bold text-lg">{t.author}</span>
-                <span className="block text-lime-500/80 text-sm font-medium uppercase tracking-wider">{t.role}</span>
-              </div>
+            <div className="flex items-center gap-3 mb-5">
+              <span className="h-px w-8 bg-lime-500" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-lime-500">
+                Testimonials
+              </span>
             </div>
+            <h2
+              className="font-display font-black leading-[0.95] tracking-[-0.04em] text-cream-50"
+              style={{ fontSize: 'clamp(2rem, 3.6vw, 3.25rem)' }}
+            >
+              What Our Partners Say.
+            </h2>
           </div>
 
-          {/* ═══════════════════════════════════════════
-              PART 3: Big Stats
-              ═══════════════════════════════════════════ */}
+          {/* 3-card testimonials — multi-directional reveal */}
           <div
-            ref={statsRef}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-cream-50/[0.06] rounded-2xl overflow-hidden"
+            ref={cardsRef}
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6"
           >
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`bg-ink-950 p-10 md:p-12 flex flex-col items-center text-center transition-all duration-700 ease-out ${
-                  statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            {testimonials.map((item, i) => (
+              <figure
+                key={item.author}
+                className={`group relative flex flex-col rounded-2xl border border-cream-50/[0.06] bg-cream-50/[0.03] p-7 transition-all duration-700 ease-out hover:border-lime-500/30 hover:bg-cream-50/[0.06] hover:-translate-y-2 ${
+                  cardsVisible ? cardRest : cardEnter[i]
                 }`}
-                style={{ transitionDelay: `${i * 180}ms` }}
+                style={{ transitionDelay: `${i * 160}ms` }}
               >
-                <span
-                  className="font-display font-black leading-none tracking-[-0.04em] text-cream-50 mb-2"
-                  style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
-                >
-                  {stat.value}
+                {/* Quote mark */}
+                <span className="block font-display text-lime-500 text-5xl font-black leading-none mb-4 opacity-30">
+                  &ldquo;
                 </span>
-                <span className="text-[11px] font-medium text-cream-50/35 uppercase tracking-[0.2em]">
-                  {stat.label}
-                </span>
-              </div>
+
+                {/* Quote */}
+                <blockquote className="text-cream-50/70 text-sm md:text-[15px] font-body leading-relaxed flex-1">
+                  {item.quote}
+                </blockquote>
+
+                {/* Author */}
+                <figcaption className="flex items-center gap-3 mt-6 pt-6 border-t border-cream-50/[0.08]">
+                  <span
+                    className={`w-11 h-11 shrink-0 rounded-full ${item.avatar} text-ink-950 flex items-center justify-center font-display font-black text-base`}
+                  >
+                    {item.author.charAt(0)}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-cream-50 font-bold text-sm truncate">
+                      {item.author}
+                    </span>
+                    <span className="block text-lime-500/80 text-[11px] font-medium uppercase tracking-wider truncate">
+                      {item.role}
+                    </span>
+                  </span>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>

@@ -1,6 +1,11 @@
 import { content } from '../../data/content';
+import { useScrollReveal, useStaggerReveal } from '../../hooks/useScrollReveal';
 
 export default function Hero() {
+  const [bgRef, bgVisible] = useScrollReveal<HTMLImageElement>({ threshold: 0.15 });
+  const [copyRef, copyVisible] = useStaggerReveal<HTMLDivElement>({ threshold: 0.1 });
+  const [indicatorRef, indicatorVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.3 });
+
   return (
     <section
       id="hero"
@@ -8,9 +13,12 @@ export default function Hero() {
     >
       {/* ── Full-bleed background image ── */}
       <img
+        ref={bgRef}
         src="/hero-bg.jpg"
         alt="Smad Impex custom apparel"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-out ${
+          bgVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+        }`}
         loading="eager"
       />
 
@@ -19,10 +27,18 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-ink-950/60 to-transparent" />
 
       {/* ── Text content — pinned to bottom-left like Lystre ── */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-20 px-8 md:px-16 lg:px-24">
+      <div
+        ref={copyRef}
+        className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-20 px-8 md:px-16 lg:px-24"
+      >
 
         {/* Eyebrow tag */}
-        <div className="flex items-center gap-3 mb-6">
+        <div
+          className={`flex items-center gap-3 mb-6 transition-all duration-700 ease-out ${
+            copyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: '0ms' }}
+        >
           <span className="h-px w-8 bg-lime-500" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-lime-500">
             Sialkot, Pakistan — Est. 2012
@@ -31,8 +47,10 @@ export default function Hero() {
 
         {/* Oversized Archivo headline */}
         <h1
-          className="font-display font-black leading-[0.88] tracking-[-0.04em] text-cream-50 mb-6"
-          style={{ fontSize: 'clamp(3.5rem, 9vw, 8.5rem)' }}
+          className={`font-display font-black leading-[0.88] tracking-[-0.04em] text-cream-50 mb-6 transition-all duration-700 ease-out ${
+            copyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ fontSize: 'clamp(3.5rem, 9vw, 8.5rem)', transitionDelay: '120ms' }}
         >
           Built for
           <br />
@@ -42,12 +60,22 @@ export default function Hero() {
         </h1>
 
         {/* Short sub-line */}
-        <p className="text-cream-50/65 text-sm md:text-base font-body max-w-xs md:max-w-sm mb-10 leading-relaxed">
+        <p
+          className={`text-cream-50/65 text-sm md:text-base font-body max-w-xs md:max-w-sm mb-10 leading-relaxed transition-all duration-700 ease-out ${
+            copyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: '280ms' }}
+        >
           Custom OEM &amp; ODM sportswear manufacturing from Sialkot.
         </p>
 
         {/* CTA buttons */}
-        <div className="flex items-center gap-5 flex-wrap">
+        <div
+          className={`flex items-center gap-5 flex-wrap transition-all duration-700 ease-out ${
+            copyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: '420ms' }}
+        >
           <a
             href="#newsletter"
             id="hero-cta"
@@ -68,7 +96,13 @@ export default function Hero() {
       </div>
 
       {/* ── Scroll indicator (right side) ── */}
-      <div className="absolute bottom-10 right-10 z-10 items-center gap-2 hidden md:flex flex-col">
+      <div
+        ref={indicatorRef}
+        className={`absolute bottom-10 right-10 z-10 items-center gap-2 hidden md:flex flex-col transition-all duration-700 ease-out ${
+          indicatorVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        }`}
+        style={{ transitionDelay: '620ms' }}
+      >
         <div className="w-px h-16 bg-cream-50/20 overflow-hidden relative">
           <div
             className="absolute top-0 left-0 w-full h-1/2 bg-lime-500"
